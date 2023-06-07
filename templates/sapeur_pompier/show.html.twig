@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SapeurPompier{% endblock %}
+
+{% block body %}
+    <h1>SapeurPompier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sapeur_pompier.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ sapeur_pompier.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ sapeur_pompier.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ sapeur_pompier.tel }}</td>
+            </tr>
+            <tr>
+                <th>Bip</th>
+                <td>{{ sapeur_pompier.bip }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sapeur_pompier_index') }}">back to list</a>
+
+    <a href="{{ path('app_sapeur_pompier_edit', {'id': sapeur_pompier.id}) }}">edit</a>
+
+    {{ include('sapeur_pompier/_delete_form.html.twig') }}
+{% endblock %}

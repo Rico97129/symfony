@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caserne index{% endblock %}
+
+{% block body %}
+    <h1>Caserne index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Adresse</th>
+                <th>Cp</th>
+                <th>Ville</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for caserne in casernes %}
+            <tr>
+                <td>{{ caserne.id }}</td>
+                <td>{{ caserne.libelle }}</td>
+                <td>{{ caserne.adresse }}</td>
+                <td>{{ caserne.cp }}</td>
+                <td>{{ caserne.ville }}</td>
+                <td>
+                    <a href="{{ path('app_caserne_show', {'id': caserne.id}) }}">show</a>
+                    <a href="{{ path('app_caserne_edit', {'id': caserne.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_caserne_new') }}">Create new</a>
+{% endblock %}

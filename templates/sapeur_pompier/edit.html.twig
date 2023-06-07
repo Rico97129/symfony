@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit SapeurPompier{% endblock %}
+
+{% block body %}
+    <h1>Edit SapeurPompier</h1>
+
+    {{ include('sapeur_pompier/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_sapeur_pompier_index') }}">back to list</a>
+
+    {{ include('sapeur_pompier/_delete_form.html.twig') }}
+{% endblock %}

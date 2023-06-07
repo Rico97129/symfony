@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SapeurPompier index{% endblock %}
+
+{% block body %}
+    <h1>SapeurPompier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Tel</th>
+                <th>Bip</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sapeur_pompier in sapeur_pompiers %}
+            <tr>
+                <td>{{ sapeur_pompier.id }}</td>
+                <td>{{ sapeur_pompier.nom }}</td>
+                <td>{{ sapeur_pompier.prenom }}</td>
+                <td>{{ sapeur_pompier.tel }}</td>
+                <td>{{ sapeur_pompier.bip }}</td>
+                <td>
+                    <a href="{{ path('app_sapeur_pompier_show', {'id': sapeur_pompier.id}) }}">show</a>
+                    <a href="{{ path('app_sapeur_pompier_edit', {'id': sapeur_pompier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sapeur_pompier_new') }}">Create new</a>
+{% endblock %}
